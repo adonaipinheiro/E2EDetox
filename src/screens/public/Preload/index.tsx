@@ -1,9 +1,27 @@
-import React from 'react';
+import React, {useEffect, useCallback} from 'react';
 
-import {Container} from './styles';
+// Types
+import {NavigationProps} from '~/types/navigationProps';
 
-const Preload: React.FC = () => {
-  return <Container />;
+import {Container, LoadingSpinner, Logo} from './styles';
+
+const Preload: React.FC<NavigationProps> = ({navigation}) => {
+  const navigateTo = useCallback(() => {
+    setTimeout(() => {
+      navigation.replace('Login');
+    }, 5000);
+  }, [navigation]);
+
+  useEffect(() => {
+    navigateTo();
+  }, [navigateTo]);
+
+  return (
+    <Container>
+      <Logo />
+      <LoadingSpinner />
+    </Container>
+  );
 };
 
 export default Preload;

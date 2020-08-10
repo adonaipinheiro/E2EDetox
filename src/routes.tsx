@@ -12,14 +12,17 @@ import Timeline from './screens/private/Timeline';
 import Profile from './screens/private/Profile';
 import New from './screens/private/Timeline/New';
 
-const Stack = createStackNavigator();
+// Types
+import {RootStackParamList} from './types/routeList';
+
+const Stack = createStackNavigator<RootStackParamList>();
 
 function Routes() {
   const [isLogged] = useState(false);
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
+    <NavigationContainer fallback={Preload}>
+      <Stack.Navigator screenOptions={{headerShown: false}}>
         {isLogged ? (
           <>
             <Stack.Screen name="Timeline" component={Timeline} />
