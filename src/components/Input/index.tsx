@@ -1,10 +1,20 @@
 import React from 'react';
 import {TextInputProps} from 'react-native';
 
-import {Container, IconArea, Icon, InputArea} from './styles';
+import {
+  Container,
+  InputContainer,
+  IconArea,
+  Icon,
+  InputArea,
+  ErrorArea,
+  ErrorText,
+} from './styles';
 
 interface Props extends TextInputProps {
   placeholder: string;
+  error: boolean;
+  errorMessage: string;
   value: string;
   icon: string;
   onChangeText: (arg1: string) => void;
@@ -15,11 +25,13 @@ const Input: React.FC<Props> = ({
   onChangeText,
   value,
   icon,
+  error = false,
+  errorMessage,
   ...props
 }) => {
   return (
-    <>
-      <Container>
+    <Container>
+      <InputContainer error={error}>
         <IconArea>
           <Icon name={icon} />
         </IconArea>
@@ -29,8 +41,13 @@ const Input: React.FC<Props> = ({
           placeholder={placeholder}
           onChangeText={(text: string) => onChangeText(text)}
         />
-      </Container>
-    </>
+      </InputContainer>
+      {error && (
+        <ErrorArea error={error}>
+          <ErrorText>{errorMessage}</ErrorText>
+        </ErrorArea>
+      )}
+    </Container>
   );
 };
 

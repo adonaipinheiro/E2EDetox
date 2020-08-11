@@ -1,4 +1,10 @@
 import React, {useState} from 'react';
+import {Keyboard} from 'react-native';
+
+import {
+  SharedElement,
+  SharedElementsComponentConfig,
+} from 'react-navigation-shared-element';
 
 // Types
 import {NavigationProps} from '~/types/navigationProps';
@@ -12,15 +18,19 @@ import {
   Input,
 } from './styles';
 
-const Register: React.FC<NavigationProps> = ({navigation}) => {
+const Register: React.FC<NavigationProps> & {sharedElements: Function} = ({
+  navigation,
+}) => {
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
   const goBack = () => {
+    Keyboard.dismiss();
     navigation.goBack();
   };
 
   const register = () => {
+    Keyboard.dismiss();
     navigation.navigate('Login');
   };
 
@@ -29,7 +39,16 @@ const Register: React.FC<NavigationProps> = ({navigation}) => {
       <BackButton onPress={goBack}>
         <BackButtonIcon name="arrow-left" />
       </BackButton>
-      <Logo />
+      <SharedElement id="logo">
+        <Logo />
+      </SharedElement>
+      <Input
+        icon="user"
+        value={username}
+        placeholder="Nome"
+        returnKeyType="next"
+        onChangeText={(user) => setUsername(user)}
+      />
       <Input
         icon="user"
         value={username}
@@ -39,19 +58,21 @@ const Register: React.FC<NavigationProps> = ({navigation}) => {
       <Input
         icon="mail"
         value={username}
-        placeholder="Usuário"
+        placeholder="E-mail"
         onChangeText={(user) => setUsername(user)}
       />
       <Input
-        icon="key"
+        icon="lock"
         value={username}
-        placeholder="Usuário"
+        placeholder="Senha"
+        secureTextEntry
         onChangeText={(user) => setUsername(user)}
       />
       <Input
-        icon="key"
+        icon="lock"
         value={password}
-        placeholder="Senha"
+        placeholder="Repetir senha"
+        secureTextEntry
         onChangeText={(pass) => {
           setPassword(pass);
         }}
@@ -65,5 +86,11 @@ const Register: React.FC<NavigationProps> = ({navigation}) => {
     </Container>
   );
 };
+
+const sharedElements: SharedElementsComponentConfig = () => {
+  return [{id: 'logo'}];
+};
+
+Register.sharedElements = sharedElements;
 
 export default Register;

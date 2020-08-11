@@ -11,14 +11,12 @@ type TextProps = {
   color?: string;
 };
 
-export const Container = styled.TouchableOpacity.attrs({
-  activeOpacity: 0.6,
-})<ButtonProps>`
+export const Container = styled.TouchableOpacity<ButtonProps>`
   flex-direction: row;
   align-items: center;
   justify-content: center;
   background-color: ${(props) =>
-    (props.color || '#0066CC') + (props.isDisabled ? '75' : '')};
+    (props.color || '#00acee') + (props.isDisabled ? '75' : '')};
   width: 200px;
   height: 40px;
   border-radius: 4px;

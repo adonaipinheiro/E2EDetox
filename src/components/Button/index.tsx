@@ -1,16 +1,16 @@
 import React from 'react';
+import {TouchableOpacityProps} from 'react-native';
 
 import {Container, ButtonText, Spinner} from './styles';
 
 // Types
-type Props = {
+interface Props extends TouchableOpacityProps {
   isDisabled: boolean;
   isLoading: boolean;
   color?: string;
   buttonTextColor?: string;
   buttonText: string;
-  onPress: () => void;
-};
+}
 
 const Button: React.FC<Props> = ({
   color,
@@ -18,14 +18,15 @@ const Button: React.FC<Props> = ({
   buttonTextColor,
   isDisabled,
   isLoading,
-  onPress,
+  ...props
 }) => {
   return (
     <Container
+      activeOpacity={0.6}
       disabled={isDisabled}
       isDisabled={isDisabled}
       color={color}
-      onPress={onPress}>
+      {...props}>
       {isLoading ? (
         <Spinner />
       ) : (

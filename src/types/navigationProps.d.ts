@@ -4,6 +4,6 @@ import {RootStackParamList} from './routeList';
 
 type ScreenNavigationProp = StackNavigationProp<RootStackParamList>;
 
-export type NavigationProps = {
+export interface NavigationProps {
   navigation: ScreenNavigationProp;
-};
+}
