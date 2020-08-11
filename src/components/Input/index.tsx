@@ -1,27 +1,36 @@
 import React from 'react';
+import {TextInputProps} from 'react-native';
 
 import {Container, IconArea, Icon, InputArea} from './styles';
 
-interface Props {
+interface Props extends TextInputProps {
   placeholder: string;
   value: string;
-  isPass?: boolean;
+  icon: string;
   onChangeText: (arg1: string) => void;
 }
 
-const Input: React.FC<Props> = ({placeholder, onChangeText, value, isPass}) => {
+const Input: React.FC<Props> = ({
+  placeholder,
+  onChangeText,
+  value,
+  icon,
+  ...props
+}) => {
   return (
-    <Container>
-      <IconArea>
-        <Icon />
-      </IconArea>
-      <InputArea
-        value={value}
-        secureTextEntry={isPass}
-        placeholder={placeholder}
-        onChangeText={(text: string) => onChangeText(text)}
-      />
-    </Container>
+    <>
+      <Container>
+        <IconArea>
+          <Icon name={icon} />
+        </IconArea>
+        <InputArea
+          {...props}
+          value={value}
+          placeholder={placeholder}
+          onChangeText={(text: string) => onChangeText(text)}
+        />
+      </Container>
+    </>
   );
 };
 

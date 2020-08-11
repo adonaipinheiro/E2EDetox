@@ -1,24 +1,38 @@
 import React from 'react';
 
-import {Container, ButtonText} from './styles';
+import {Container, ButtonText, Spinner} from './styles';
 
 // Types
-export type Props = {
-  isDisabled?: boolean;
+type Props = {
+  isDisabled: boolean;
+  isLoading: boolean;
   color?: string;
-  text: string;
+  buttonTextColor?: string;
+  buttonText: string;
   onPress: () => void;
 };
 
 const Button: React.FC<Props> = ({
   color,
-  text,
-  isDisabled = false,
+  buttonText,
+  buttonTextColor,
+  isDisabled,
+  isLoading,
   onPress,
 }) => {
   return (
-    <Container isDisabled={isDisabled} color={color} onPress={onPress}>
-      <ButtonText isDisabled={isDisabled}>{text}</ButtonText>
+    <Container
+      disabled={isDisabled}
+      isDisabled={isDisabled}
+      color={color}
+      onPress={onPress}>
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <ButtonText isDisabled={isDisabled} color={buttonTextColor}>
+          {buttonText}
+        </ButtonText>
+      )}
     </Container>
   );
 };

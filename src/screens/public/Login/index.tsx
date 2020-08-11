@@ -3,35 +3,61 @@ import React, {useState} from 'react';
 // Types
 import {NavigationProps} from '~/types/navigationProps';
 
-// Components
-import Input from '../../../components/Input';
-import Button from '../../../components/Button';
+import {
+  Container,
+  Logo,
+  Input,
+  Button,
+  ButtonRegister,
+  ButtonRegisterText,
+  ButtonRegisterTextBold,
+} from './styles';
 
-import {Container, Logo} from './styles';
-
-const Login: React.FC<NavigationProps> = () => {
+const Login: React.FC<NavigationProps> = ({navigation}) => {
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
-  const logIn = () => {};
+  const logIn = () => {
+    navigation.replace('Timeline');
+  };
+
+  const register = () => {
+    navigation.navigate('Register');
+  };
 
   return (
     <Container>
       <Logo />
       <Input
+        icon="user"
+        keyboardType="email-address"
         value={username}
         placeholder="Usuário"
         onChangeText={(user) => setUsername(user)}
       />
       <Input
-        isPass
+        icon="key"
+        secureTextEntry
         value={password}
         placeholder="Senha"
         onChangeText={(pass) => {
           setPassword(pass);
         }}
       />
-      <Button text="Entrar" onPress={logIn} />
+
+      <Button
+        isLoading={false}
+        isDisabled={false}
+        buttonText="Entrar"
+        onPress={logIn}
+      />
+
+      <ButtonRegister onPress={register}>
+        <ButtonRegisterText>
+          Não possui conta?{' '}
+          <ButtonRegisterTextBold>Cadastre-se</ButtonRegisterTextBold>
+        </ButtonRegisterText>
+      </ButtonRegister>
     </Container>
   );
 };
