@@ -4,7 +4,7 @@ import {SharedElement} from 'react-navigation-shared-element';
 // Types
 import {NavigationProps} from '~/types/navigationProps';
 
-import {Container, LoadingSpinner, Logo} from './styles';
+import {Container, LoadingSpinner, Logo, LoadingText} from './styles';
 
 const Preload: React.FC<NavigationProps> = ({navigation}) => {
   const navigateTo = useCallback(() => {
@@ -22,6 +22,7 @@ const Preload: React.FC<NavigationProps> = ({navigation}) => {
       <SharedElement id="logo">
         <Logo />
       </SharedElement>
+      <LoadingText>Carregando</LoadingText>
       <LoadingSpinner />
     </Container>
   );

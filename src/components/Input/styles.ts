@@ -6,7 +6,7 @@ interface InputProps {
 }
 
 export const Container = styled.View`
-  width: 200px;
+  width: 100%;
 `;
 
 export const InputContainer = styled.View<InputProps>`
@@ -16,8 +16,8 @@ export const InputContainer = styled.View<InputProps>`
   width: 100%;
   height: 40px;
   border-radius: 4px;
-  background-color: #ddd;
-  margin-bottom: ${(props) => (props.error ? '0' : '10px')};
+  background-color: #ffffff;
+  margin-bottom: ${(props) => (props.error ? '0' : '15px')};
   padding: 5px;
 `;
 
@@ -32,13 +32,15 @@ export const IconArea = styled.View`
 
 export const Icon = styled(FIcon)`
   font-size: 20px;
-  color: #00acee;
+  color: #2abfa4;
   margin-left: 2.5px;
 `;
 
 export const InputArea = styled.TextInput`
   padding: 5px 10px 5px 5px;
   width: 170px;
+  color: #000000;
+  font-size: 14px;
 `;
 
 export const ErrorArea = styled.View<InputProps>`

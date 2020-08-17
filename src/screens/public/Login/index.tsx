@@ -10,6 +10,7 @@ import {NavigationProps} from '~/types/navigationProps';
 
 import {
   Container,
+  PageTitle,
   Logo,
   Input,
   Button,
@@ -39,6 +40,7 @@ const Login: React.FC<NavigationProps> & {sharedElements: Function} = ({
       <SharedElement id="logo">
         <Logo />
       </SharedElement>
+      <PageTitle>Login</PageTitle>
       <Input
         icon="user"
         keyboardType="email-address"
@@ -70,7 +72,7 @@ const Login: React.FC<NavigationProps> & {sharedElements: Function} = ({
       <ButtonRegister onPress={register}>
         <ButtonRegisterText>
           Não possui conta?{' '}
-          <ButtonRegisterTextBold>Cadastre-se</ButtonRegisterTextBold>
+          <ButtonRegisterTextBold>Crie sua conta</ButtonRegisterTextBold>
         </ButtonRegisterText>
       </ButtonRegister>
     </Container>

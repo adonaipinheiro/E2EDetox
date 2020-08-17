@@ -12,6 +12,7 @@ import {NavigationProps} from '~/types/navigationProps';
 import {
   Container,
   Logo,
+  PageTitle,
   BackButton,
   BackButtonIcon,
   Button,
@@ -21,8 +22,10 @@ import {
 const Register: React.FC<NavigationProps> & {sharedElements: Function} = ({
   navigation,
 }) => {
-  const [username, setUsername] = useState<string>('');
+  const [name, setName] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [passwordConfirm, setPasswordConfirm] = useState<string>('');
 
   const goBack = () => {
     Keyboard.dismiss();
@@ -42,39 +45,42 @@ const Register: React.FC<NavigationProps> & {sharedElements: Function} = ({
       <SharedElement id="logo">
         <Logo />
       </SharedElement>
+      <PageTitle>Cadastre-se</PageTitle>
       <Input
+        error={false}
+        errorMessage="O nome não pode estar em branco"
         icon="user"
-        value={username}
+        value={name}
         placeholder="Nome"
         returnKeyType="next"
-        onChangeText={(user) => setUsername(user)}
+        onChangeText={(text) => setName(text)}
       />
       <Input
-        icon="user"
-        value={username}
-        placeholder="Usuário"
-        onChangeText={(user) => setUsername(user)}
-      />
-      <Input
+        error={false}
+        errorMessage="O e-mail não pode estar vazio"
         icon="mail"
-        value={username}
+        value={email}
         placeholder="E-mail"
-        onChangeText={(user) => setUsername(user)}
+        onChangeText={(text) => setEmail(text)}
       />
       <Input
-        icon="lock"
-        value={username}
-        placeholder="Senha"
-        secureTextEntry
-        onChangeText={(user) => setUsername(user)}
-      />
-      <Input
+        error={false}
+        errorMessage="A senha não pode estar em branco"
         icon="lock"
         value={password}
+        placeholder="Senha"
+        secureTextEntry
+        onChangeText={(text) => setPassword(text)}
+      />
+      <Input
+        error={password !== passwordConfirm}
+        errorMessage="As senhas não conferem"
+        icon="repeat"
+        value={passwordConfirm}
         placeholder="Repetir senha"
         secureTextEntry
-        onChangeText={(pass) => {
-          setPassword(pass);
+        onChangeText={(text) => {
+          setPasswordConfirm(text);
         }}
       />
       <Button

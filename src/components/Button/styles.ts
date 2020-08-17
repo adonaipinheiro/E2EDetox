@@ -16,8 +16,8 @@ export const Container = styled.TouchableOpacity<ButtonProps>`
   align-items: center;
   justify-content: center;
   background-color: ${(props) =>
-    (props.color || '#00acee') + (props.isDisabled ? '75' : '')};
-  width: 200px;
+    (props.color || '#05A387') + (props.isDisabled ? '75' : '')};
+  width: 100%;
   height: 40px;
   border-radius: 4px;
   margin: 0 0 15px;

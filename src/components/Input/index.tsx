@@ -12,18 +12,12 @@ import {
 } from './styles';
 
 interface Props extends TextInputProps {
-  placeholder: string;
   error: boolean;
   errorMessage: string;
-  value: string;
   icon: string;
-  onChangeText: (arg1: string) => void;
 }
 
 const Input: React.FC<Props> = ({
-  placeholder,
-  onChangeText,
-  value,
   icon,
   error = false,
   errorMessage,
@@ -35,12 +29,7 @@ const Input: React.FC<Props> = ({
         <IconArea>
           <Icon name={icon} />
         </IconArea>
-        <InputArea
-          {...props}
-          value={value}
-          placeholder={placeholder}
-          onChangeText={(text: string) => onChangeText(text)}
-        />
+        <InputArea {...props} />
       </InputContainer>
       {error && (
         <ErrorArea error={error}>

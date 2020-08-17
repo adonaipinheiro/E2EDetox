@@ -5,18 +5,22 @@ import FIcon from 'react-native-vector-icons/Feather';
 import Input from '../../../components/Input';
 import Button from '../../../components/Button';
 
+const uri =
+  'https://floriculturapontoverde.com.br/wp-content/themes/intrigue%20child/images/fb_icon.png';
+
 export const Container = styled.KeyboardAvoidingView.attrs({
   behavior: 'padding',
 })`
   flex: 1;
   justify-content: center;
   align-items: center;
+  padding: 0 47px;
+  background-color: #57ceb926;
 `;
 
 export const Logo = styled.Image.attrs({
   source: {
-    uri:
-      'https://logodownload.org/wp-content/uploads/2014/09/twitter-logo-4.png',
+    uri: uri,
   },
   resizeMode: 'contain',
 })`
@@ -26,6 +30,15 @@ export const Logo = styled.Image.attrs({
   margin-bottom: 15px;
 `;
 
+export const PageTitle = styled.Text`
+  font-size: 21px;
+  color: #012720;
+  margin: 50px 0;
+  font-weight: bold;
+  width: 100%;
+  text-align: left;
+`;
+
 export const BackButton = styled.TouchableOpacity`
   position: absolute;
   top: ${getStatusBarHeight(true) + 20 + 'px'};
@@ -33,8 +46,8 @@ export const BackButton = styled.TouchableOpacity`
 `;
 
 export const BackButtonIcon = styled(FIcon)`
-  font-size: 24px;
-  color: #00acee;
+  font-size: 30px;
+  color: #05a387;
 `;
 
 export {Input, Button};
