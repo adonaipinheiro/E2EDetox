@@ -131,7 +131,7 @@ export const LogoutButtonText = styled.Text`
 
 export const BackButton = styled.TouchableOpacity.attrs(buttonConfig)<Props>`
   position: absolute;
-  top: ${getStatusBarHeight(true) + 'px'};
+  top: ${getStatusBarHeight() + 'px'};
   left: 20px;
 
   ${({timeline}) =>

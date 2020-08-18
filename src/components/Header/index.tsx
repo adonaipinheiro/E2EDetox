@@ -34,9 +34,12 @@ const Header: React.FC<Props> = ({timeline, ...props}) => {
   return (
     <Container>
       <ContainerBackground timeline={timeline}>
-        <BackButton timeline={timeline} onPress={goBack}>
-          <BackButtonIcon name="arrow-left" />
-        </BackButton>
+        {!timeline && (
+          <BackButton timeline={timeline} onPress={goBack}>
+            <BackButtonIcon name="arrow-left" />
+          </BackButton>
+        )}
+
         <UserContainer timeline={timeline}>
           <ImageContainer timeline={timeline} {...props}>
             <Image timeline={timeline} />
@@ -45,9 +48,12 @@ const Header: React.FC<Props> = ({timeline, ...props}) => {
             <Name timeline={timeline}>Mia Polive</Name>
           </NameContainer>
         </UserContainer>
-        <LogoutButtonArea timeline={timeline} onPress={logOut}>
-          <LogoutButtonText>Sair</LogoutButtonText>
-        </LogoutButtonArea>
+
+        {timeline && (
+          <LogoutButtonArea timeline={timeline} onPress={logOut}>
+            <LogoutButtonText>Sair</LogoutButtonText>
+          </LogoutButtonArea>
+        )}
       </ContainerBackground>
     </Container>
   );
