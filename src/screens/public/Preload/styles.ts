@@ -1,7 +1,5 @@
 import styled from 'styled-components/native';
-
-const uri =
-  'https://floriculturapontoverde.com.br/wp-content/themes/intrigue%20child/images/fb_icon.png';
+import {logoBranco} from '../../../assets/Logo';
 
 export const Container = styled.View`
   flex: 1;
@@ -11,13 +9,11 @@ export const Container = styled.View`
 `;
 
 export const Logo = styled.Image.attrs({
-  source: {
-    uri: uri,
-  },
+  source: logoBranco,
   resizeMode: 'contain',
 })`
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
   border-radius: 4px;
 `;
 

@@ -1,11 +1,10 @@
 import styled from 'styled-components/native';
 
+import {logo} from '../../../assets/Logo';
+
 // Components
 import Input from '../../../components/Input';
 import Button from '../../../components/Button';
-
-const uri =
-  'https://floriculturapontoverde.com.br/wp-content/themes/intrigue%20child/images/fb_icon.png';
 
 export const Container = styled.KeyboardAvoidingView.attrs({
   behavior: 'padding',
@@ -18,13 +17,11 @@ export const Container = styled.KeyboardAvoidingView.attrs({
 `;
 
 export const Logo = styled.Image.attrs({
-  source: {
-    uri: uri,
-  },
+  source: logo,
   resizeMode: 'contain',
 })`
-  width: 125px;
-  height: 125px;
+  width: 75px;
+  height: 75px;
   border-radius: 4px;
 `;
 
@@ -40,7 +37,7 @@ export const PageTitle = styled.Text`
 export const ButtonRegister = styled.TouchableOpacity.attrs({
   activeOpacity: 0.6,
 })`
-  margin-top: 150px;
+  margin-top: 100px;
 `;
 
 export const ButtonRegisterText = styled.Text`

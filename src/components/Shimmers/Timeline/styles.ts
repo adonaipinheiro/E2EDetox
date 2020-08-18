@@ -42,5 +42,16 @@ export const TagArea = styled.View`
 export const TagItem = styled(ShimmerPlaceHolder).attrs(shimmerConfig)`
   width: 70px;
   height: 30px;
-  border-radius: 12.5px;
+  border-radius: 15px;
+`;
+
+export const NewsArea = styled.View`
+  margin: 10px 30px;
+  max-width: 100%;
+`;
+
+export const NewsItem = styled(ShimmerPlaceHolder).attrs(shimmerConfig)`
+  width: 100%;
+  height: 150px;
+  margin-bottom: 20px;
 `;

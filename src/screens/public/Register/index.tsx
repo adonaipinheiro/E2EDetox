@@ -1,11 +1,6 @@
 import React, {useState} from 'react';
 import {Keyboard} from 'react-native';
 
-import {
-  SharedElement,
-  SharedElementsComponentConfig,
-} from 'react-navigation-shared-element';
-
 // Types
 import {NavigationProps} from '~/types/navigationProps';
 
@@ -19,9 +14,7 @@ import {
   Input,
 } from './styles';
 
-const Register: React.FC<NavigationProps> & {sharedElements: Function} = ({
-  navigation,
-}) => {
+const Register: React.FC<NavigationProps> = ({navigation}) => {
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -42,9 +35,7 @@ const Register: React.FC<NavigationProps> & {sharedElements: Function} = ({
       <BackButton onPress={goBack}>
         <BackButtonIcon name="arrow-left" />
       </BackButton>
-      <SharedElement id="logo">
-        <Logo />
-      </SharedElement>
+      <Logo />
       <PageTitle>Cadastre-se</PageTitle>
       <Input
         error={false}
@@ -92,11 +83,5 @@ const Register: React.FC<NavigationProps> & {sharedElements: Function} = ({
     </Container>
   );
 };
-
-const sharedElements: SharedElementsComponentConfig = () => {
-  return [{id: 'logo'}];
-};
-
-Register.sharedElements = sharedElements;
 
 export default Register;

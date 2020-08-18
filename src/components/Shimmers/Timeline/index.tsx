@@ -7,6 +7,8 @@ import {
   TagTitle,
   TagArea,
   TagItem,
+  NewsArea,
+  NewsItem,
 } from './styles';
 
 const Timeline: React.FC = () => {
@@ -21,6 +23,12 @@ const Timeline: React.FC = () => {
         <TagItem />
         <TagItem />
       </TagArea>
+      <NewsArea>
+        <NewsItem />
+        <NewsItem />
+        <NewsItem />
+        <NewsItem />
+      </NewsArea>
     </Container>
   );
 };

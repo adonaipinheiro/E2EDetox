@@ -1,6 +1,6 @@
 import React from 'react';
 import {TouchableOpacityProps} from 'react-native';
-import {withNavigation} from 'react-navigation';
+import {useNavigation} from '@react-navigation/native';
 
 import {
   Container,
@@ -18,10 +18,11 @@ import {
 
 export interface Props extends TouchableOpacityProps {
   timeline?: boolean;
-  navigation?: any;
 }
 
-const Header: React.FC<Props> = ({timeline, navigation, ...props}) => {
+const Header: React.FC<Props> = ({timeline, ...props}) => {
+  const navigation = useNavigation();
+
   const logOut = () => {
     navigation.navigate('Preload');
   };
@@ -41,7 +42,7 @@ const Header: React.FC<Props> = ({timeline, navigation, ...props}) => {
             <Image timeline={timeline} />
           </ImageContainer>
           <NameContainer timeline={timeline} {...props}>
-            <Name timeline={timeline}>Adonai Pinheiro</Name>
+            <Name timeline={timeline}>Mia Polive</Name>
           </NameContainer>
         </UserContainer>
         <LogoutButtonArea timeline={timeline} onPress={logOut}>
@@ -52,4 +53,4 @@ const Header: React.FC<Props> = ({timeline, navigation, ...props}) => {
   );
 };
 
-export default withNavigation(Header);
+export default Header;

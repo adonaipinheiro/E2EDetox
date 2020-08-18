@@ -20,7 +20,7 @@ export const Container = styled.View`
 export const ContainerBackground = styled.View<Props>`
   width: ${Dimensions.get('screen').width + 'px'};
   height: 150px;
-  background-color: #00ffd133;
+  background-color: #57ceb926;
   justify-content: flex-end;
   align-items: flex-start;
 
@@ -28,7 +28,7 @@ export const ContainerBackground = styled.View<Props>`
     !timeline &&
     `
     width: ${Dimensions.get('screen').width + 'px'};
-    background-color: #00ffd133;
+    background-color: #57ceb926;
     justify-content: center;
     align-items: center;
     padding-top: ${getStatusBarHeight(true) + 'px'};

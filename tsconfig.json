@@ -17,6 +17,7 @@
     "paths": {
       "~/*": ["*"] // resolve any `~/foo/bar` to `<baseUrl>/foo/bar`
     },
+    "resolveJsonModule": true
   },
   "exclude": [
     "node_modules", "babel.config.js", "metro.config.js", "jest.config.js"

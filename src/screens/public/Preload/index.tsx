@@ -1,5 +1,4 @@
 import React, {useEffect, useCallback} from 'react';
-import {SharedElement} from 'react-navigation-shared-element';
 
 // Types
 import {NavigationProps} from '~/types/navigationProps';
@@ -19,9 +18,7 @@ const Preload: React.FC<NavigationProps> = ({navigation}) => {
 
   return (
     <Container>
-      <SharedElement id="logo">
-        <Logo />
-      </SharedElement>
+      <Logo />
       <LoadingText>Carregando</LoadingText>
       <LoadingSpinner />
     </Container>

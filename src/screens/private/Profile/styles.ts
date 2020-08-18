@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import Icon from 'react-native-vector-icons/Feather';
 
 import TimelineShimmer from '../../../components/Shimmers/Timeline';
 import Header from '../../../components/Header';
@@ -37,6 +38,11 @@ export const Separator = styled.View`
   background-color: #ddd;
   width: 100%;
   margin: 5px 0;
+`;
+
+export const ItemIcon = styled(Icon)`
+  font-size: 24px;
+  color: ${(props) => (props.name === 'x' ? '#ff0000' : '#82B366')};
 `;
 
 export {TimelineShimmer, Header};
