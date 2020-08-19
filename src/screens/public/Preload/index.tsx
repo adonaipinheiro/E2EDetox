@@ -9,7 +9,7 @@ const Preload: React.FC<NavigationProps> = ({navigation}) => {
   const navigateTo = useCallback(() => {
     setTimeout(() => {
       navigation.replace('Login');
-    }, 5000);
+    }, 10000);
   }, [navigation]);
 
   useEffect(() => {
@@ -17,7 +17,7 @@ const Preload: React.FC<NavigationProps> = ({navigation}) => {
   }, [navigateTo]);
 
   return (
-    <Container>
+    <Container testID="preload">
       <Logo />
       <LoadingText>Carregando</LoadingText>
       <LoadingSpinner />

@@ -31,7 +31,7 @@ const Register: React.FC<NavigationProps> = ({navigation}) => {
   };
 
   return (
-    <Container>
+    <Container testID="register">
       <BackButton onPress={goBack}>
         <BackButtonIcon name="arrow-left" />
       </BackButton>

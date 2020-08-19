@@ -16,12 +16,21 @@ import {
 } from './styles';
 
 const Login: React.FC<NavigationProps> = ({navigation}) => {
+  const [error, setError] = useState<boolean>(false);
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
+  const checkUserAndPass = () => {
+    if (username !== 'adonai@gmail.com' || password !== '123456') {
+      setError(true);
+    } else {
+      navigation.replace('Timeline');
+    }
+  };
+
   const logIn = () => {
     Keyboard.dismiss();
-    navigation.replace('Timeline');
+    checkUserAndPass();
   };
 
   const register = () => {
@@ -30,22 +39,24 @@ const Login: React.FC<NavigationProps> = ({navigation}) => {
   };
 
   return (
-    <Container>
+    <Container testID="login">
       <Logo />
       <PageTitle>Entrar</PageTitle>
       <Input
+        testID="userInput"
         icon="user"
         keyboardType="email-address"
-        error={false}
-        errorMessage="Usuário não pode ser vazio"
+        error={error}
+        errorMessage="Usuário não encontrado"
         value={username}
         placeholder="Usuário"
         onChangeText={(user) => setUsername(user)}
       />
       <Input
+        testID="passInput"
         icon="lock"
-        error={false}
-        errorMessage="Senha não pode ser vazia"
+        error={error}
+        errorMessage="Senha não correspondente"
         secureTextEntry
         value={password}
         placeholder="Senha"
@@ -55,13 +66,14 @@ const Login: React.FC<NavigationProps> = ({navigation}) => {
       />
 
       <Button
+        testID="loginButton"
         isLoading={false}
         isDisabled={false}
         buttonText="Entrar"
         onPress={logIn}
       />
 
-      <ButtonRegister onPress={register}>
+      <ButtonRegister testID="registerButton" onPress={register}>
         <ButtonRegisterText>
           Não possui conta?{' '}
           <ButtonRegisterTextBold>Crie sua conta</ButtonRegisterTextBold>
