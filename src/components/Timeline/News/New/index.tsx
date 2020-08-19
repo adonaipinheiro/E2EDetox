@@ -1,4 +1,5 @@
 import React from 'react';
+import {useNavigation} from '@react-navigation/native';
 
 import {
   Container,
@@ -16,8 +17,14 @@ interface Props {
 }
 
 const New: React.FC<Props> = ({data}) => {
+  const navigation = useNavigation();
+
+  const goToNew = () => {
+    navigation.navigate('New', {data});
+  };
+
   return (
-    <Container>
+    <Container onPress={goToNew}>
       <HeaderArea>
         <AuthorText>
           Por: {data.author} • {data.postDate}
