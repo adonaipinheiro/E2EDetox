@@ -30,6 +30,7 @@ const Tags: React.FC<Posts> = ({posts}) => {
     <Container>
       <TagsTitle>Tags</TagsTitle>
       <TagsFlatList
+        testID="tagScroll"
         horizontal
         data={tags}
         keyExtractor={(item, index) => index.toString()}

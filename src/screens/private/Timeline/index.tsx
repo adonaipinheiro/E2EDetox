@@ -39,7 +39,7 @@ const Timeline: React.FC<NavigationProps> = ({navigation}) => {
   }
 
   return (
-    <Container>
+    <Container testID="timeline">
       <Header timeline onPress={navigateToProfile} />
       <Tags posts={posts} />
       <News posts={posts} />

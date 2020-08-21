@@ -59,7 +59,7 @@ const New: React.FC = () => {
   }
 
   return (
-    <Container>
+    <Container testID="newPage">
       <BackButton onPress={goBack}>
         <BackButtonIcon />
       </BackButton>

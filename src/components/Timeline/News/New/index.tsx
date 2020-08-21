@@ -24,7 +24,7 @@ const New: React.FC<Props> = ({data}) => {
   };
 
   return (
-    <Container onPress={goToNew}>
+    <Container testID={`new${data.id}`} onPress={goToNew}>
       <HeaderArea>
         <AuthorText>
           Por: {data.author} • {data.postDate}

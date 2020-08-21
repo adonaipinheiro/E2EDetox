@@ -31,13 +31,14 @@ const Register: React.FC<NavigationProps> = ({navigation}) => {
   };
 
   return (
-    <Container>
+    <Container testID="register">
       <BackButton onPress={goBack}>
         <BackButtonIcon name="arrow-left" />
       </BackButton>
       <Logo />
       <PageTitle>Cadastre-se</PageTitle>
       <Input
+        testID="registerNameField"
         error={false}
         errorMessage="O nome não pode estar em branco"
         icon="user"
@@ -47,6 +48,7 @@ const Register: React.FC<NavigationProps> = ({navigation}) => {
         onChangeText={(text) => setName(text)}
       />
       <Input
+        testID="registerEmailField"
         error={false}
         errorMessage="O e-mail não pode estar vazio"
         icon="mail"
@@ -55,6 +57,7 @@ const Register: React.FC<NavigationProps> = ({navigation}) => {
         onChangeText={(text) => setEmail(text)}
       />
       <Input
+        testID="registerPassField"
         error={false}
         errorMessage="A senha não pode estar em branco"
         icon="lock"
@@ -64,6 +67,7 @@ const Register: React.FC<NavigationProps> = ({navigation}) => {
         onChangeText={(text) => setPassword(text)}
       />
       <Input
+        testID="registerRePassField"
         error={password !== passwordConfirm}
         errorMessage="As senhas não conferem"
         icon="repeat"
@@ -75,8 +79,9 @@ const Register: React.FC<NavigationProps> = ({navigation}) => {
         }}
       />
       <Button
-        isLoading={false}
-        isDisabled={false}
+        testID="registerButtonAccess"
+        isLoading={password !== passwordConfirm}
+        isDisabled={password !== passwordConfirm}
         buttonText="Cadastrar"
         onPress={register}
       />
