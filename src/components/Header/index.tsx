@@ -41,7 +41,7 @@ const Header: React.FC<Props> = ({timeline, ...props}) => {
         )}
 
         <UserContainer timeline={timeline}>
-          <ImageContainer timeline={timeline} {...props}>
+          <ImageContainer testID="imageProfile" timeline={timeline} {...props}>
             <Image timeline={timeline} />
           </ImageContainer>
           <NameContainer timeline={timeline} {...props}>

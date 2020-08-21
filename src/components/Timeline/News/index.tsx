@@ -10,8 +10,9 @@ const News: React.FC<Posts> = ({posts}) => {
   return (
     <Container>
       <NewsFlatList
+        testID="timelineScroll"
         data={posts}
-        keyExtractor={(item: any) => item.id.toString()}
+        keyExtractor={(item, index) => index.toString()}
         renderItem={({item}) => <New data={item} />}
       />
     </Container>

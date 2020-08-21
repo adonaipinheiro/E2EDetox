@@ -50,7 +50,7 @@ const Profile: React.FC = () => {
   };
 
   return (
-    <Container>
+    <Container testID="profile">
       <Header />
       <Items>
         <ItemArea>
